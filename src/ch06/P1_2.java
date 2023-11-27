@@ -1,4 +1,4 @@
-package Chapter6;
+package ch06;
 
 // 유효한 팰린드롬 풀이2 문자열 직접 비교
 public class P1_2 {

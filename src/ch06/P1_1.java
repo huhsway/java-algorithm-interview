@@ -1,4 +1,4 @@
-package Chapter6;
+package ch06;
 
 // 유효한 팰린드롬 풀이1 문자 단위로 추출해서 처리
 public class P1_1 {

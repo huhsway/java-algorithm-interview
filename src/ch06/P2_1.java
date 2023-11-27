@@ -1,4 +1,4 @@
-package Chapter6;
+package ch06;
 
 // 문자열 뒤집기 풀이1 문자 배열로 스왑
 public class P2_1 {
