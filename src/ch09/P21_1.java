@@ -5,22 +5,43 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class P21_1 {
-    public Set<Character> toSortedSet(String s) {
-        // 문자열을 문자 단위 집합으로 저장할 변수 선언
-        Set<Character> set = new TreeSet<>(new Comparator<Character>(){
+//    public static Set<Character> toSortedSet(String s) {
+//        // 문자열을 문자 단위 집합으로 저장할 변수 선언
+//        Set<Character> set = new TreeSet<>(new Comparator<Character>(){
+//
+//            @Override
+//            public int compare(Character o1, Character o2) {
+//                // 동일한 문자면 무시
+//                if (o1 == o2)
+//                    return 0;
+//                // 새로운 문자(o1)가 기존 문자(o2)보다 크면 뒤에 위치
+//                else if (o1 > o2)
+//                    return 1;
+//                // 작으면 앞에 위치
+//                else
+//                    return -1;
+//            }
+//        });
+//
+//        // 문자열을 문자 단위로 집합에 저장, 정렬된 상태로 저장된다.
+//        for (int i = 0; i < s.length(); i++) {
+//            set.add(s.charAt(i));
+//        }
+//        return set;
+//    }
 
-            @Override
-            public int compare(Character o1, Character o2) {
-                // 동일한 문자면 무시
-                if (o1 == o2)
-                    return 0;
+    public static Set<Character> toSortedSet(String s) {
+        // 문자열을 문자 단위 집합으로 저장할 변수 선언
+        Set<Character> set = new TreeSet<>((o1, o2) -> {
+            // 동일한 문자면 무시
+            if (o1 == o2)
+                return 0;
                 // 새로운 문자(o1)가 기존 문자(o2)보다 크면 뒤에 위치
-                else if (o1 > o2)
-                    return 1;
+            else if (o1 > o2)
+                return 1;
                 // 작으면 앞에 위치
-                else
-                    return -1;
-            }
+            else
+                return -1;
         });
 
         // 문자열을 문자 단위로 집합에 저장, 정렬된 상태로 저장된다.
@@ -30,7 +51,7 @@ public class P21_1 {
         return set;
     }
 
-    public String removeDuplicateLetters(String s) {
+    public static String removeDuplicateLetters(String s) {
         // 정렬된 문자열 집합 순회
         for (char c : toSortedSet(s)) {
             // 해당 문자가 포함된 위치부터 접미사로 지정
@@ -41,5 +62,10 @@ public class P21_1 {
             }
         }
         return "";
+    }
+
+    public static void main(String[] args) {
+        String s = "dbacdcbc";
+        System.out.println(removeDuplicateLetters(s));
     }
 }
